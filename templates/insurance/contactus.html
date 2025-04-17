@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Feedback - Insurance Management System</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <style>
+    /* Background and layout */
+    .xyz {
+      background-image: url('{% static "image/feedback-bg.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Dark overlay for better text visibility */
+    .xyz::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+      z-index: -1; /* Ensure overlay is behind the content */
+    }
+
+    /* Text Container */
+    .text-container {
+      background-color: rgba(0, 0, 0, 0.5); /* Light black */
+      padding: 40px;
+      border-radius: 10px;
+      color: white;
+      max-width: 800px;
+      width: 90%;
+    }
+
+    /* Heading */
+    .text-container h3 {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 30px;
+    }
+
+    /* Form styling */
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    .form-control {
+      border-radius: 10px;
+      font-size: 16px;
+      padding: 15px;
+    }
+
+    /* Button Styling */
+    .btn-primary {
+      background-color: #ffcc00 !important; /* Yellow button color */
+      color: #212529;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background-color: #e6b800 !important; /* Darker yellow on hover */
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4); /* Light shadow on hover */
+    }
+
+    /* Quote styling */
+    .quote-container {
+      font-size: 24px;
+      font-style: italic;
+      color: white;
+      margin-top: 40px;
+    }
+
+    /* Footer margin */
+    footer {
+      margin-top: 40px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  {% include "insurance/navbar.html" %}
+
+  <!-- Feedback Section -->
+  <section class="xyz">
+    <div class="text-container">
+      <h3>Send Us Your Valuable Feedback!</h3>
+      <p class="lead">We would love to hear from you and improve our services. Your feedback matters to us.</p>
+
+      <!-- Feedback Form -->
+      <form method="POST" autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group">
+          {{ form.as_p }}
+        </div>
+
+        <!-- Submit Button -->
+        <div class="form-group">
+          <input type="submit" value="Send Message" class="btn btn-primary btn-lg">
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  {% include "insurance/footer.html" %}
+
+</body>
+
+</html>

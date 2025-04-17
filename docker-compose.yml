@@ -1,0 +1,31 @@
+services:
+  web:
+    build: .
+    command: gunicorn insurancemanagement.wsgi:application --bind 0.0.0.0:8049
+
+    volumes:
+      - .:/app
+    ports:
+      - "8049:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=insurance_management_system
+      - DB_USER=root
+      - DB_PASSWORD=root
+      - DB_HOST=db
+      - DB_PORT=3306  # Keep as 3306 (internal container port)
+
+  db:
+    image: mysql:8.0
+    restart: always
+    environment:
+      MYSQL_DATABASE: insurance_management_system
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3307:3306"  # Changed host port to 3307
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:

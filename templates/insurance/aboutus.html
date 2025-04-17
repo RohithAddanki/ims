@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>About Us - Insurance Management System</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <style media="screen">
+    /* Full-screen background */
+    .xyz {
+      background-image: url('{% static "image/homepage.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh; /* Ensure it takes full height */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Dark overlay for better text visibility */
+    .xyz::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay */
+      z-index: -1; /* Ensure overlay is behind the content */
+    }
+
+    /* Text container with padding and light black background */
+    .text-container {
+      background-color: rgba(0, 0, 0, 0.3); /* Light black */
+      padding: 40px 50px;
+      border-radius: 50px;
+      color: white;
+      max-width: 700px;
+      margin: 20px;
+      text-align: center;
+    }
+
+    /* Heading */
+    .hero-title {
+      font-size: 40px;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Subheading */
+    .hero-subtitle {
+      font-size: 24px;
+      font-style: italic;
+      margin-top: 20px;
+    }
+
+    /* Button Styling */
+    .cta-button {
+      background-color: #ffcc00;
+      color: #212529;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 18px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background-color: #e6b800;
+      transform: translateY(-5px);
+      box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+    }
+
+    /* Quote styling */
+    .quote-container {
+      font-size: 24px;
+      font-style: italic;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  {% include "insurance/navbar.html" %}
+
+  <!-- About Us Section -->
+  <section class="xyz">
+    <div class="text-container">
+      <h1 class="hero-title">About Us</h1>
+      <p class="hero-subtitle">“Every month that you send a check to the life insurance company, you're making a bet with them. Don't worry, one day you'll win.”</p>
+      <p class="lead">We are committed to providing the best insurance services to protect your future. Our mission is to ensure that every customer is covered and ready for whatever life brings their way.</p>
+      <p class="lead">
+        <a href="/" class="cta-button">Go Home</a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  {% include "insurance/footer.html" %}
+
+</body>
+
+</html>

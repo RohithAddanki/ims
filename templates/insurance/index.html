@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insurance Management System</title>
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+  <style>
+    /* Custom Background Image for Hero Section */
+    .xyz {
+      background-image: url('{% static "image/homepage.jpg" %}');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      min-height: 100vh; /* Ensure it takes full height of the screen */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+    }
+
+    /* Dark Overlay for Better Text Visibility */
+    .xyz::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0, 0, 0, 0.4); /* Dark overlay to improve contrast */
+      z-index: -1; /* Place the overlay behind the text */
+    }
+
+    /* Hero Section Text Container with Light Black Background and Padding */
+    .hero-text-container {
+      background-color: rgba(0, 0, 0, 0.2); /* Light black background */
+      padding: 30px 20px; /* Padding around the text */
+      border-radius: 100
+      px; /* Optional rounded corners */
+      color: white; /* White text color */
+      display: inline-block; /* To make the container fit the text size */
+      text-align: center;
+    }
+
+    /* Hero Section Title */
+    .hero-title {
+      font-size: 48px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: white; /* Keeping the text white */
+    }
+
+    /* Hero Section Subtitle */
+    .hero-subtitle {
+      font-size: 24px;
+      font-style: italic;
+      margin-top: 20px;
+      color: white; /* Keeping the text white */
+    }
+
+    /* Call to Action Button */
+    .cta-button {
+      background-color: #ffcc00;
+      color: #212529;
+      padding: 15px 30px;
+      border-radius: 50px;
+      font-size: 20px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    /* Hover Effect on CTA Button */
+    .cta-button:hover {
+      background-color: #e6b800;
+      transform: translateY(-5px); /* Slightly raise the button */
+      box-shadow: 0 5px 15px rgba(255, 204, 0, 0.4);
+    }
+
+    /* Text at the Bottom of the Image */
+    .quote-container {
+      position: absolute;
+      bottom: 30px; /* Position the quote near the bottom */
+      left: 50%;
+      transform: translateX(-50%); /* Center it horizontally */
+      font-size: 32px;
+      font-weight: 600;
+      font-style: italic;
+      color: white; /* Keeping the text white */
+      max-width: 90%;
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 90px;
+      margin-bottom: 5px; /* Ensure it's not too close to the screen edge */
+    }
+
+    /* Jumbotron Styling */
+    .jumbotron {
+      background-color: #f8f9fa;
+      padding: 30px 0;
+      border-radius: 0;
+      margin-top: -50px;
+    }
+
+    /* Footer Styling */
+    footer {
+      background-color: #343a40;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  {% include "insurance/navbar.html" %}
+
+  <!-- Hero Section -->
+  <section id="section-jumbotron" class="xyz">
+    <div class="container">
+      <!-- Text Container with Light Black Background -->
+      <div class="hero-text-container">
+        <h1 class="hero-title">Welcome to Insurance Management System</h1>
+        <p class="hero-subtitle">Protecting your future, today.</p>
+        <a href="/customer/customerclick" class="cta-button">Get Started</a>
+      </div>
+    </div>
+
+    <!-- Quote Text at the Bottom of the Image -->
+    <div class="quote-container">
+      “Whole life does two things for you: Protects your family and allows you to save for your future.”
+    </div>
+  </section>
+  <!-- Footer -->
+  {% include "insurance/footer.html" %}
+</body>
+
+</html>
